@@ -14,9 +14,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-
+    
+    - name: Pre Package
+      run: chmod +x mvnw
+    
     - name: Package, Build and Push
-      run: mvn clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-username="${{ secrets.DOCKERHUB_USERNAME }}" -Dquarkus.jib.base-registry-password="${{ secrets.DOCKERHUB_PS }}"
+      run: ./mvnw clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-username="${{ secrets.DOCKERHUB_USERNAME }}" -Dquarkus.jib.base-registry-password="${{ secrets.DOCKERHUB_PS }}"
     
     - name: Docker
       run: docker images

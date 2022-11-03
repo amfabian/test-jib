@@ -16,7 +16,7 @@ jobs:
         cache: maven
 
     - name: Package, Build and Push
-      run: mvn clean package -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=registry.hub.docker.com -Dquarkus.jib.base-registry-username=${{ secrets.DOCKERHUB_USERNAME }} -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
+      run: mvn clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-username=${{ secrets.DOCKERHUB_USERNAME }} -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
 
 
 

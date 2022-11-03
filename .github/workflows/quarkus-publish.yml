@@ -19,7 +19,7 @@ jobs:
       run: ./mvnw verify
 
     - name: Package, Build and Push
-      run: mvn clean package \
+      run: ./mvnw clean package \
           -Dquarkus.container-image.push=true \
           -Dquarkus.container-image.registry=registry.hub.docker.com \
           -Dquarkus.jib.base-registry-username=secrets.DOCKERHUB_USERNAME \

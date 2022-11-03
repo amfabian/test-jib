@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/hello")
 public class GreetingResource {
-
+    //coment
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {

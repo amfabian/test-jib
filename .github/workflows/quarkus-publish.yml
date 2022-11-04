@@ -19,7 +19,9 @@ jobs:
       run: chmod +x mvnw
       
     - name: Package
-      run: ./mvnw clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
+      run: | 
+      echo "${{ secrets.DOCKERHUB_PS }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      ./mvnw clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
 
     
     - name: Docker list all images 

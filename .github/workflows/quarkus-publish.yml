@@ -1,5 +1,5 @@
 name: Package and deploy 
-run-name: ${{ github.actor }} is testing Build and Push Image on GitHub Actions 🚀
+run-name: ${{ github.actor }} is testing Build and Push Image on Docker Hub 🚀
 on: [push]
 jobs:
   build:

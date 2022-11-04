@@ -19,9 +19,10 @@ jobs:
       run: chmod +x mvnw
       
     - name: Package
-      run: mvn package
+      run: mvn clean package -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=registry.hub.docker.com -Dquarkus.jib.base-registry-username= ${{ secrets.DOCKERHUB_USERNAME }} -Dquarkus.jib.base-registry-password= ${{ secrets.DOCKERHUB_PS }}
+
     
-    - name: Docker
+    - name: Docker list all images 
       run: docker images
 
 
